@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liễu Tấn Khoa — Portfolio</title>
+  <style>
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f0f0; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img {
+      border-radius: 12px;    
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25); 
+    }
+
+    .image-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 30px 0;
+  background: #0c1a3c;
+  margin-top: 40px;
+}
+
+.image-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 12s linear infinite;
+}
+
+.image-track img {
+  width: 300px;          /* Chiều rộng cố định */
+  height: 400px;         /* Chiều cao cố định */
+  object-fit: cover;     /* Cắt ảnh để luôn đồng bộ */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+}
+
+    /* Slide RIGHT */
+@keyframes slideLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Slide RIGHT (vô tận) */
+@keyframes slideRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+.track-left {
+  animation: slideLeft 12s linear infinite;
+}
+
+.track-right {
+  animation: slideRight 12s linear infinite;
+}
+
+    /* HERO SECTION FORMAT (giống mẫu của bạn) */
+.hero {
+  background: #111;
+  color: white;
+  padding: 80px 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* LEFT TEXT */
+.hero-text .hello {
+  font-size: 32px;
+  color: #5aa0ff;
+  margin-bottom: 10px;
+}
+
+.big-name {
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.bio {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 600px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* BUTTON */
+.hero-button {
+  display: inline-block;
+  padding: 16px 30px;
+  background: #0d1f92;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background: #1c2fe0;
+  transform: translateY(-3px);
+}
+
+/* AVATAR CIRCLE (gradient tím giống mẫu) */
+.avatar-wrapper {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff); /* BLUE GRADIENT */
+  box-shadow: 0 0 35px rgba(0, 140, 255, 0.45);         /* BLUE GLOW */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+    .skill-item {
+      background: #eee;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .skill-item:hover {
+      transform: translateY(-5px);
+      background: #ddd;
+    }
+
+    /* Info Section layout (2-box horizontal) */
+.info-section {
+  margin-top: 80px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;      /* để khi màn nhỏ thì tự xuống dòng */
+}
+
+.info-card {
+  flex: 1;
+  background: #0f1624;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.25);
+  color: white;
+  min-width: 320px;     /* hộp không bị hẹp */
+}
+
+/* TITLE format */
+.info-card h3,
+.hobby-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #4da3ff;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: 1.3px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  margin: 20px 0;
+}
+
+/* Skills layout */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-list span {
+  background: rgba(255,255,255,0.08);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Hobbies layout */
+.hobby-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.hobby-item {
+  text-align: center;
+  width: 90px;
+}
+
+.hobby-circle {
+  width: 70px;
+  height: 70px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 0 auto 8px;
+}
+
+    /* --- ABOUT ME SECTION --- */
+.about-section {
+  background: #0f1624;
+  padding: 80px 5%;
+  text-align: left;
+  color: white;
+}
+
+.about-title {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.about-sub {
+  font-size: 22px;
+  color: #4da3ff;
+}
+    /* --- INFO SECTION WRAPPER --- */
+.info-section {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+/* --- TWO CARDS --- */
+.info-card {
+  flex: 1;
+  background: #0f1624;
+  padding: 35px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* BIG TEXT QUOTES */
+.big-text {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* BLUE KEYWORDS */
+.highlight {
+  color: #4da3ff;
+}
+
+/* SECTION TITLES INSIDE CARDS */
+.info-card h3 {
+  margin-top: 18px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #4da3ff;
+}
+
+/* DIVIDER LINES */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.22);
+  background: #4da3ff;
+  opacity: 0.5;
+  border: none;
+  margin: 20px 0;
+}
+
+
+/* SKILLS & INTERESTS LIST FORMAT */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-list span {
+  background: #1b2436;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 1px solid #2e3a55;
+}
+
+/* --- HOBBIES SECTION (RIGHT CARD) --- */
+.hobby-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hobby-desc {
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+.hobby-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.hobby-item {
+  text-align: center;
+}
+
+.hobby-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #4da3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  color: #4da3ff;
+  transition: 0.25s ease;
+  background: #0f1624;
+}
+
+.hobby-circle:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(77,163,255,0.45);
+}
+
+.hobby-label {
+  margin-top: 10px;
+  font-size: 16px;
+}
+    /* ===== EDUCATION SECTION ===== */
+    /* ======================================
+   EDUCATION — EXACT FORMAT LIKE SAMPLE
+   ====================================== */
+
+.edu-section {
+  background: #0f1624;
+  padding: 100px 6%;
+  color: white;
+}
+
+.edu-container {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ===== EDUCATION — FIX HEIGHT BALANCE ===== */
+.edu-section {
+  background: #0f1624;
+  padding: 100px 6%;
+  color: white;
+}
+
+.edu-container {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;   /* Hình to hơn chút */
+  gap: 70px;
+  align-items: stretch;                 /* CHỮ CAO THEO CHIỀU CAO HÌNH */
+}
+
+/* LEFT */
+.edu-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;               /* căn giữa theo chiều dọc */
+  gap: 18px;                             /* khoảng cách đều nhau */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.edu-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edu-icon {
+  font-size: 42px;
+}
+
+.edu-school {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.edu-major {
+  font-size: 22px;
+  color: #4da3ff;
+}
+
+.edu-year {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.edu-block h4 {
+  font-size: 20px;
+  color: #89b4ff;
+  margin-bottom: 4px;
+}
+
+.edu-block p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* RIGHT (BIGGER IMAGE + SHIFT LEFT) */
+.edu-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* ĐẨY HÌNH SANG TRÁI */
+}
+
+.edu-right img {
+  width: 115%;                   /* TO HƠN RÕ RỆT */
+  height: 580px;                 /* TĂNG CHIỀU CAO */
+  object-fit: cover;
+  border-radius: 18px;
+  transform: translateX(-10%);   /* DỊCH TRÁI NHẸ CHO ĐẸP */
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+}
+
+  /* ===== HONORS & AWARDS ===== */
+.honors-section {
+  background: #0f1624;
+  padding: 100px 6%;
+  color: white;
+}
+
+.honors-title {
+  font-size: 46px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.honors-sub {
+  font-size: 18px;
+  color: #4da3ff;
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.honors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.honor-card {
+  background: #131b2e;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.honor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+}
+
+.honor-icon {
+  font-size: 30px;
+  color: #4da3ff;
+  margin-bottom: 18px;
+}
+
+.honor-card h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.honor-org {
+  display: block;
+  font-size: 14px;
+  color: #4da3ff;
+  margin-bottom: 6px;
+}
+
+.honor-time {
+  display: block;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.honor-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+    /* ===== HONORS GROUP TITLE ===== */
+.honors-group-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 70px 0 30px;
+  color: #89b4ff;
+  position: relative;
+}
+
+.honors-group-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 70px;
+  height: 3px;
+  background: #4da3ff;
+  border-radius: 4px;
+}
+
+    /* ===== ACHIEVEMENT GALLERY ===== */
+.achievement-gallery {
+  background: #0f1624;
+  padding: 80px 5%;
+}
+
+.gallery-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.gallery-sub {
+  font-size: 18px;
+  color: #4da3ff;
+  margin-bottom: 40px;
+}
+
+/* SLIDER */
+.gallery-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 25px;
+  animation: galleryScroll 18s linear infinite;
+}
+
+.gallery-track img {
+  width: 320px;
+  height: 220px;
+  background: #1c2538;   /* placeholder khi chưa có ảnh */
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* PAUSE khi hover */
+.gallery-slider:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+/* ANIMATION */
+@keyframes galleryScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+    /* ===== HONORS ACHIEVEMENT GALLERY ===== */
+.honors-gallery-sub {
+  font-size: 16px;
+  color: #9bbcff;
+  margin-bottom: 30px;
+}
+
+.honors-gallery {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.honors-gallery-track {
+  display: flex;
+  gap: 25px;
+  animation: honorsScroll 20s linear infinite;
+}
+
+.honors-gallery-track img {
+  width: 320px;
+  height: 220px;
+  background: #1c2538; /* placeholder */
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* pause on hover */
+.honors-gallery:hover .honors-gallery-track {
+  animation-play-state: paused;
+}
+
+@keyframes honorsScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+    /* ===============================
+   EXTRACURRICULARS SECTION
+================================ */
+
+.extracurriculars {
+  background: radial-gradient(circle at top left, #3a004d, #0c0f14);
+  padding: 90px 6%;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  max-width: 720px;
+  font-size: 18px;
+  color: #6fb0ff;
+  margin-bottom: 55px;
+}
+
+/* GRID */
+.extra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* CARD */
+.extra-card {
+  background: linear-gradient(180deg, #151a1f, #0e1116);
+  padding: 28px 26px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.extra-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.65);
+}
+
+/* HEADER */
+.extra-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.extra-icon {
+  font-size: 28px;
+}
+
+.extra-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ROLE */
+.extra-role {
+  display: inline-block;
+  font-size: 13px;
+  color: #7fb3ff;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+/* DESCRIPTION */
+.extra-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+/* TAGS */
+.extra-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.extra-tags span {
+  background: rgba(122, 70, 255, 0.25);
+  color: #d6caff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+    /* ===============================
+   LEADERSHIP EXPERIENCE
+================================ */
+
+.leadership {
+  background: #0f1216;
+  padding: 90px 6%;
+  color: #fff;
+}
+
+.leadership-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* CARD */
+.leadership-card {
+  display: flex;
+  gap: 28px;
+  background: linear-gradient(180deg, #151a1f, #0e1116);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.leadership-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.6);
+}
+
+/* IMAGE */
+.leadership-img img {
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.leadership-content h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.leadership-role {
+  display: block;
+  font-size: 14px;
+  color: #6fb0ff;
+  margin-bottom: 12px;
+}
+
+.leadership-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+/* TAGS */
+.leadership-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.leadership-tags span {
+  background: rgba(122, 70, 255, 0.25);
+  color: #d6caff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .leadership-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leadership-img img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+    /* ================= LEADERSHIP ================= */
+
+.leadership-section {
+  padding: 80px 5%;
+  background: #0f1624;
+  color: white;
+}
+
+.leadership-section .section-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.leadership-section .section-sub {
+  font-size: 18px;
+  color: #4da3ff;
+  margin-bottom: 40px;
+}
+
+.leadership-card {
+  background: #151d2f;
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.leadership-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.leadership-meta {
+  font-size: 16px;
+  color: #a0b3d9;
+  margin-bottom: 14px;
+}
+
+.leadership-meta span {
+  color: #6fb0ff;
+}
+
+.leadership-desc {
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 18px;
+}
+
+/* LINK BUTTON */
+.leadership-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #3a7bfd, #6b4dff);
+  color: white;
+  font-size: 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.leadership-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(90,120,255,0.45);
+}
+
+    /* ===== COMMUNITY INFO BOXES ===== */
+
+.community-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.community-box {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  background: rgba(77,163,255,0.12);
+  border: 1px solid rgba(77,163,255,0.35);
+  color: #9ecbff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+    .community-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #4da3ff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.community-link:hover {
+  text-decoration: underline;
+}
+
+
+    /* ================= WORK EXPERIENCE ================= */
+
+.work-section {
+  padding: 80px 5%;
+  background: #0f1624;
+  color: white;
+}
+
+.work-card {
+  display: flex;
+  gap: 28px;
+  background: #141c2e;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+}
+
+/* LEFT IMAGE */
+.work-left {
+  min-width: 160px;
+  max-width: 160px;
+}
+
+.work-left img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* RIGHT CONTENT */
+.work-right {
+  flex: 1;
+}
+
+.work-right h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.work-role {
+  font-size: 14px;
+  color: #4da3ff;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.work-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 16px;
+}
+
+    /* ===== FOOTER ===== */
+.site-footer {
+  background: linear-gradient(135deg, #0b1f4d, #123a8f); /* BLUE BACKGROUND */
+  color: #e6ecff;
+  padding: 50px 5% 30px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Top info */
+.footer-top {
+  font-size: 15px;
+  opacity: 0.95;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.footer-top span {
+  margin: 0 6px;
+  white-space: nowrap;
+}
+
+/* Social buttons */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.social-btn {
+  padding: 11px 24px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: 0.3s ease;
+}
+
+.social-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-3px);
+}
+
+/* Bottom */
+.footer-bottom {
+  font-size: 13px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO / Header -->
+  <header class="hero">
+  <div class="hero-container">
+    
+    <!-- LEFT CONTENT -->
+    <div class="hero-text">
+      <p class="hello">Hello World, I am</p>
+      <h1 class="big-name">Liễu Tấn Khoa</h1>
+
+      <p class="bio">
+        A high school student aspiring to explore Computer Science and AI, driven by curiosity 
+        and a desire to broaden my perspective. I seek opportunities that challenge me to 
+        develop my expertise while contributing to projects that create meaningful impact.
+      </p>
+
+      <a href="#gallery" class="hero-button">Explore My Journey</a>
+    </div>
+
+    <!-- RIGHT AVATAR -->
+    <div class="avatar-wrapper">
+      <img src="avatar.jpg" alt="Avatar">
+    </div>
+
+  </div>
+</header>
+  <!-- ABOUT ME SECTION -->
+<section id="about" class="about-section">
+  <h2 class="about-title">About Me</h2>
+  <p class="about-sub">
+    This is things that show you who I am. 
+  </p>
+</section>
+
+
+  <div class="image-slider" id="gallery">
+  <div class="image-track track-right">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+    <img src="img5.jpg">
+
+    <!-- Duplicate để chạy vô tận -->
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+    <img src="img5.jpg">
+  </div>
+</div>
+
+
+  <div class="image-slider">
+  <div class="image-track track-left">
+    <img src="img6.jpg">
+    <img src="img7.jpg">
+    <img src="img8.jpg">
+    <img src="img9.jpg">
+    <img src="img10.jpg">
+
+    <!-- Duplicate để chạy vô tận -->
+    <img src="img6.jpg">
+    <img src="img7.jpg">
+    <img src="img8.jpg">
+    <img src="img9.jpg">
+    <img src="img10.jpg">
+  </div>
+</div>
+
+
+
+
+  <div class="container">
+    <!-- Objective -->
+    <section class="info-section">
+      <div class="info-row">
+
+  <!-- LEFT CARD -->
+        <div class="info-card">
+
+  <!-- LIFE MOTTO -->
+  <p class="big-text">
+    "Machines are just not tools, they are our best friends."
+  </p>
+  <h3>LIFE MOTTO</h3>
+  <hr class="divider">
+
+  <!-- OBJECTIVE -->
+  <p class="big-text">
+    Code with <span class="highlight">purpose</span>,
+    build with <span class="highlight">impact</span>.
+  </p>
+  <h3>OBJECTIVE</h3>
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <div class="skills-list">
+    <span>C/C++</span>
+    <span>Python</span>
+    <span>Java</span>
+    <span>HTML & CSS</span>
+    <span>SQL</span>
+    <span>LaTeX</span>
+    <span>PHP</span>
+    <span>Arduino</span>
+  </div>
+  <h3>SKILLS</h3>
+  <hr class="divider">
+
+
+</div>
+
+
+ 
+
+  <!-- RIGHT CARD (HOBBIES) -->
+  <div class="info-card">
+    <h1 class="hobby-title">Hobbies</h1>
+    <p class="hobby-desc">
+      Beyond academics, I find joy and balance through diverse interests
+    </p>
+
+    <div class="hobby-icons">
+
+  <div class="hobby-item">
+    <div class="hobby-circle">💻</div>
+    <div class="hobby-label">Coding</div>
+  </div>
+
+  <div class="hobby-item">
+    <div class="hobby-circle">🎵</div>
+    <div class="hobby-label">Music</div>
+  </div>
+
+  <div class="hobby-item">
+    <div class="hobby-circle">📚</div>
+    <div class="hobby-label">Research</div>
+  </div>
+
+  <div class="hobby-item">
+    <div class="hobby-circle">🎮</div>
+    <div class="hobby-label">Gaming</div>
+  </div>
+
+  <div class="hobby-item">
+    <div class="hobby-circle">📈</div>
+    <div class="hobby-label">Stock Investing</div>
+  </div>
+
+</div>
+
+    </div>
+
+    
+</section>
+
+
+    <!-- Education -->
+    <section id="education" class="edu-section">
+
+  <div class="edu-container">
+
+    <!-- LEFT SIDE: TEXT -->
+    <div class="edu-left">
+
+      <h2 class="edu-title">📘 Education</h2>
+
+      <h3 class="edu-school">
+        Le Hong Phong High School for the Gifted
+      </h3>
+
+      <p class="edu-major">Math Major</p>
+
+      <p class="edu-year">2021 – 2024</p>
+
+      <div class="edu-block">
+        <h4>GPA</h4>
+        <p>9.5 (9th) · 9.3 (10th) · 9.6 (11th) · 9.5 (12th)</p>
+      </div>
+
+      <div class="edu-block">
+        <h4>Standardized Tests</h4>
+        <p><strong>SAT:</strong> 1510 (720 Verbal, 790 Math)</p>
+        <p><strong>IELTS:</strong> 7.0 Overall</p>
+      </div>
+
+      <div class="edu-block">
+        <h4>AP Scores</h4>
+        <p>Calculus BC: 5 | Computer Science A: 5</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: IMAGE -->
+    <div class="edu-right">
+      <img src="lhp.jpg" alt="School Image">
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- Honors & Awards -->
+    <section id="honors" class="honors-section">
+  <h2 class="honors-title">Honors & Awards</h2>
+  <p class="honors-sub">
+    Academic achievements, technical competitions, and supporting evidence.
+  </p>
+
+  <!-- ===== ACADEMIC AWARDS ===== -->
+  <h3 class="honors-group-title">Academic Awards</h3>
+  <div class="honors-grid">
+
+    <div class="honor-card">
+      <div class="honor-icon">🏆</div>
+      <h3>First Prize</h3>
+      <span class="honor-org">HCMC Excellent Student Contest – Mathematics</span>
+      <span class="honor-time">Grade 9</span>
+      <p>First Prize in Ho Chi Minh City Excellent Student Contest for Mathematics.</p>
+    </div>
+
+    <div class="honor-card">
+      <div class="honor-icon">🥈</div>
+      <h3>Second Prize</h3>
+      <span class="honor-org">District-level Mathematics Competition</span>
+      <span class="honor-time">Mathematics</span>
+      <p>Won second prize in the district-level Mathematics Competition.</p>
+    </div>
+
+    <div class="honor-card">
+      <div class="honor-icon">🥉</div>
+      <h3>Third Prize</h3>
+      <span class="honor-org">Casio Calculator Mathematics Contest</span>
+      <span class="honor-time">Grade 9</span>
+      <p>Third Prize in city-level Casio Calculator Mathematics Competition.</p>
+    </div>
+
+    <div class="honor-card">
+      <div class="honor-icon">🥉</div>
+      <h3>Third Prize</h3>
+      <span class="honor-org">Myor Competition – Group 1</span>
+      <span class="honor-time">National Level</span>
+      <p>Third Prize in the Myor Competition (Group 1).</p>
+    </div>
+  </div>
+
+  <!-- ===== TECHNICAL AWARDS ===== -->
+  <h3 class="honors-group-title">Technical & STEM Achievements</h3>
+  <div class="honors-grid">
+
+    <div class="honor-card">
+      <div class="honor-icon">🤖</div>
+      <h3>Participation Certificate</h3>
+      <span class="honor-org">Master Robot Builder Competition</span>
+      <span class="honor-time">SAMK University – Finland</span>
+      <p>Participated in an international robotics competition.</p>
+    </div>
+
+    <div class="honor-card">
+      <div class="honor-icon">🚦</div>
+      <h3>Technical Member</h3>
+      <span class="honor-org">Robotraffic Competition 2023</span>
+      <span class="honor-time">Jan 2023 – Mar 2023</span>
+      <p>Contributed as a technical member in autonomous vehicle development.</p>
+    </div>
+  </div>
+
+  <!-- ===== ACHIEVEMENT GALLERY (INSIDE HONORS) ===== -->
+  <h3 class="honors-group-title">Achievement Gallery</h3>
+  <p class="honors-gallery-sub">
+    Visual evidence of certificates, awards, and competition participation.
+  </p>
+
+  <div class="honors-gallery">
+    <div class="honors-gallery-track">
+      <!-- PLACEHOLDER IMAGES – bạn thêm ảnh sau -->
+      <img src="CTVSC2022.jpg" >
+      <img src="CoreSC2023.jpg" >
+      <img src="HSGQ1.jpg" >
+      <img src="HSGTP9-Casio.jpg" >
+      <img src="HSGTP9.jpg" >
+      <img src="IsraelCompetition.jpg" >
+      <img src="MyorCompetition.jpg" >
+      <img src="SAMKCompetition.jpg" >
+
+      <!-- DUPLICATE để chạy vô tận -->
+      <img src="CTVSC2022.jpg" >
+      <img src="CoreSC2023.jpg" >
+      <img src="HSGQ1.jpg" >
+      <img src="HSGTP9-Casio.jpg" >
+      <img src="HSGTP9.jpg" >
+      <img src="IsraelCompetition.jpg" >
+      <img src="MyorCompetition.jpg" >
+      <img src="SAMKCompetition.jpg" >
+    
+    </div>
+  </div>
+</section>
+
+    
+
+    <!-- Extracurricular -->
+    <section class="extracurriculars">
+  <h2 class="section-title">Extracurricular Activities</h2>
+  <p class="section-sub">
+    This is where I highlight the activities and experiences that shaped my growth
+    beyond academics.
+  </p>
+
+  <div class="extra-grid">
+
+    <!-- Green Summer Campaign -->
+    <div class="extra-card">
+      <div class="extra-header">
+        <div class="extra-icon">🌱</div>
+        <h3>Green Summer Campaign</h3>
+      </div>
+
+      <span class="extra-role">VOLUNTEER | JUN 2025 – AUG 2025</span>
+
+      <p>
+        Participated in community volunteering activities focused on environmental
+        protection, social support, and public service.
+      </p>
+
+      <div class="extra-tags">
+        <span>Volunteering</span>
+        <span>Community</span>
+        <span>Environment</span>
+      </div>
+    </div>
+
+    <!-- Exam Support Volunteer -->
+    <div class="extra-card">
+      <div class="extra-header">
+        <div class="extra-icon">📝</div>
+        <h3>Exam Support Volunteer Program</h3>
+      </div>
+
+      <span class="extra-role">VOLUNTEER | JUN 2025 – JUL 2025</span>
+
+      <p>
+        Assisted students during national examinations by providing guidance,
+        logistical support, and supervision.
+      </p>
+
+      <div class="extra-tags">
+        <span>Volunteering</span>
+        <span>Education</span>
+        <span>Support</span>
+      </div>
+    </div>
+
+    <!-- Home Tutoring -->
+    <div class="extra-card">
+      <div class="extra-header">
+        <div class="extra-icon">📚</div>
+        <h3>Home Tutoring</h3>
+      </div>
+
+      <span class="extra-role">TUTOR | JUL 2024 – PRESENT</span>
+
+      <p>
+        Provided personalized academic tutoring for students, focusing on improving
+        understanding, problem-solving skills, and academic confidence.
+      </p>
+
+      <div class="extra-tags">
+        <span>Teaching</span>
+        <span>Mentoring</span>
+        <span>Education</span>
+      </div>
+    </div>
+
+    <!-- LHP Science Club -->
+    <div class="extra-card">
+      <div class="extra-header">
+        <div class="extra-icon">🔧</div>
+        <h3>LHP Science Club</h3>
+      </div>
+
+      <span class="extra-role">TECHNICAL TEAM | MAR 2022 – AUG 2023</span>
+
+      <p>
+        Contributed to technical projects, problem-solving tasks, and STEM-related
+        activities as part of the school science club.
+      </p>
+
+      <div class="extra-tags">
+        <span>Technology</span>
+        <span>STEM</span>
+        <span>Teamwork</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Leadership -->
+    <section class="leadership-section" id="leadership">
+
+  <h2 class="section-title">Leadership Experience</h2>
+  <p class="section-subtitle">
+    Demonstrating leadership through building and managing online communities.
+  </p>
+
+  <!-- ===== LEADERSHIP CARD 1 ===== -->
+  <div class="leadership-card">
+    <div class="leadership-left">
+      <img src="DiscordCommunity.jpg" alt="Discord Game Community">
+    </div>
+
+    <div class="leadership-right">
+      <h3>Game Community on Discord</h3>
+      <p class="leadership-role">
+        Co-founder | 2021 – Present
+      </p>
+
+      <p class="leadership-desc">
+        Co-founded and managed a gaming community on Discord, organizing annual tournaments
+        and fostering an active environment for competitive and casual gamers.
+      </p>
+
+      <div class="community-boxes">
+        <span class="community-box">50+ Members</span>
+        <span class="community-box">2000+ Followers</span>
+        <span class="community-box">Annual Tournaments</span>
+        <span class="community-box">Gaming Community</span>
+      </div>
+
+      <a href="https://discord.gg/6fUHshWDCm" target="_blank" class="community-link">
+        🔗 Visit Discord Server
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== LEADERSHIP CARD 2 ===== -->
+  <div class="leadership-card">
+    <div class="leadership-left">
+      <img src="FBGroup2.jpg" alt="Facebook Game Group">
+    </div>
+
+    <div class="leadership-right">
+      <h3>Game Group on Facebook</h3>
+      <p class="leadership-role">
+        Founder | Jun 2024 – Present
+      </p>
+
+      <p class="leadership-desc">
+        Founded and managed a Facebook gaming group focused on sharing updates,
+        discussions, and community interaction around popular competitive games.
+      </p>
+
+      <div class="community-boxes">
+        <span class="community-box">10+ Members</span>
+        <span class="community-box">100+ Followers</span>
+        <span class="community-box">Football</span>
+        <span class="community-box">League of Legends</span>
+        <span class="community-box">Liên Quân</span>
+        <span class="community-box">PUBG</span>
+      </div>
+
+      <a href="https://www.facebook.com/profile.php?id=61576912377717" target="_blank" class="community-link">
+        🔗 Visit Facebook Group
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<section class="work-section" id="work">
+
+  <h2 class="section-title">Work Experience</h2>
+  <p class="section-subtitle">
+    Hands-on experience applying technical skills to real-world educational projects.
+  </p>
+
+  <div class="work-card">
+
+    <!-- LEFT IMAGE -->
+    <div class="work-left">
+      <!-- PLACEHOLDER IMAGE: bạn thay sau -->
+      <img src="latex.jpg" alt="Mathematics Training Project">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="work-right">
+      <h3>Data Entry Coder</h3>
+
+      <p class="work-role">
+        Mathematics Training Project | Mar 2025 – May 2025
+      </p>
+
+      <p class="work-desc">
+        Worked as a data entry coder responsible for developing, organizing, and managing
+        instructional materials for mathematics training programs, ensuring accuracy
+        and consistency across datasets.
+      </p>
+
+      <!-- INFO BOXES -->
+      <div class="community-boxes">
+        <span class="community-box">Data Entry</span>
+        <span class="community-box">Mathematics</span>
+        <span class="community-box">Educational Content</span>
+        <span class="community-box">Accuracy & Consistency</span>
+        <span class="community-box">LaTeX</span>
+      </div>
+
+      <a href="https://www.overleaf.com/project/67b3399c67fe486655da438e" target="_blank" class="community-boxes">
+        🔗 Visit My Projects
+      </a>
+
+      
+
+    </div>
+  </div>
+
+</section>
+
+    
+
+    
+
+  </div>
+  
+  <footer class="site-footer">
+  <div class="footer-top">
+    <span>Ho Chi Minh City, Vietnam</span>
+    <span>|</span>
+    <span>(+84) 90 742 1406</span>
+    <span>|</span>
+    <span>khoatanlieu1406@gmail.com</span>
+  </div>
+
+  <div class="footer-socials">
+    <a href="https://github.com/lieutankhoasolid/khoalieu.github.io" target="_blank" class="social-btn">
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/li%E1%BB%85u-t%E1%BA%A5n-khoa-lieu-97b815331/" target="_blank" class="social-btn">
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/tankhoa.lieu.16/" target="_blank" class="social-btn">
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/al_himessee._.1406/" target="_blank" class="social-btn">
+      Instagram
+    </a>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Liễu Tấn Khoa. All rights reserved.
+  </div>
+</footer>
+
+
+</body>
+</html>
