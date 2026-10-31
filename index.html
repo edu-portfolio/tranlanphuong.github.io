@@ -4,1614 +4,657 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tran Lan Phuong — Portfolio</title>
+  <meta name="description" content="Portfolio of Tran Lan Phuong, a student at Nguyen Thi Minh Khai High School (Ho Chi Minh City) aspiring to study Business Analytics. SAT 1550, IELTS 7.5.">
+  <meta name="author" content="Tran Lan Phuong">
+  <meta name="theme-color" content="#0b1220">
+
+  <!-- Link preview (Zalo, Messenger, Facebook, iMessage...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tran Lan Phuong — Portfolio">
+  <meta property="og:description" content="Aspiring Business Analytics student · SAT 1550 · IELTS 7.5 · IAMO 2026 Grand Finalist">
+  <meta property="og:url" content="https://edu-portfolio.github.io/tranlanphuong.github.io/">
+  <meta property="og:image" content="https://edu-portfolio.github.io/tranlanphuong.github.io/assets/img/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset & base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f0f0; color: #333; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    img {
-      border-radius: 12px;    
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25); 
+    :root {
+      --bg: #0b1220;
+      --bg-alt: #0f1828;
+      --card: #141f33;
+      --card-hover: #18253d;
+      --line: #22314d;
+      --text: #e6ecf5;
+      --muted: #9aa8bf;
+      --accent: #4f8ff7;
+      --accent-soft: rgba(79, 143, 247, .14);
+      --radius: 16px;
+      --max: 1120px;
     }
 
-    .image-slider {
-  width: 100%;
-  overflow: hidden;
-  padding: 30px 0;
-  background: #0c1a3c;
-  margin-top: 40px;
-}
-
-.image-track {
-  display: flex;
-  gap: 20px;
-  animation: scroll 12s linear infinite;
-}
-
-.image-track img {
-  width: 300px;          /* Chiều rộng cố định */
-  height: 400px;         /* Chiều cao cố định */
-  object-fit: cover;     /* Cắt ảnh để luôn đồng bộ */
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
-}
-
-    /* Slide RIGHT */
-@keyframes slideLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Slide RIGHT (vô tận) */
-@keyframes slideRight {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
-}
-
-.track-left {
-  animation: slideLeft 12s linear infinite;
-}
-
-.track-right {
-  animation: slideRight 12s linear infinite;
-}
-
-    /* HERO SECTION FORMAT (giống mẫu của bạn) */
-.hero {
-  background: #111;
-  color: white;
-  padding: 80px 5%;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-container {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-/* LEFT TEXT */
-.hero-text .hello {
-  font-size: 32px;
-  color: #5aa0ff;
-  margin-bottom: 10px;
-}
-
-.big-name {
-  font-size: 70px;
-  font-weight: 700;
-  margin-bottom: 25px;
-  line-height: 1.1;
-}
-
-.bio {
-  font-size: 20px;
-  line-height: 1.6;
-  max-width: 600px;
-  opacity: 0.9;
-  margin-bottom: 30px;
-}
-
-/* BUTTON */
-.hero-button {
-  display: inline-block;
-  padding: 16px 30px;
-  background: #0d1f92;
-  color: white;
-  font-size: 18px;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.hero-button:hover {
-  background: #1c2fe0;
-  transform: translateY(-3px);
-}
-
-/* AVATAR CIRCLE (gradient tím giống mẫu) */
-.avatar-wrapper {
-  width: 330px;
-  height: 330px;
-  border-radius: 50%;
-  padding: 8px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff); /* BLUE GRADIENT */
-  box-shadow: 0 0 35px rgba(0, 140, 255, 0.45);         /* BLUE GLOW */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-wrapper img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
-
-    
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 15px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
-    .skill-item {
-      background: #eee;
-      padding: 12px;
-      border-radius: 8px;
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { font: inherit; }
+    figure { margin: 0; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; }
+    section.alt { background: var(--bg-alt); }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
-    .skill-item:hover {
-      transform: translateY(-5px);
-      background: #ddd;
+    h2.title { font-size: clamp(28px, 4.5vw, 40px); line-height: 1.2; font-weight: 800; margin-bottom: 12px; }
+    .lead { color: var(--muted); max-width: 640px; margin-bottom: 40px; }
+    .note { font-size: 13px; color: var(--muted); }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 18, 32, .86);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+    .brand { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .brand:hover { text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      color: var(--muted); font-size: 14px; font-weight: 500;
+      padding: 6px 12px; border-radius: 999px; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--accent-soft); text-decoration: none; }
+
+    /* ===== HERO ===== */
+    .hero { padding: 72px 0 80px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: clamp(40px, 7vw, 68px); line-height: 1.05; font-weight: 800; margin: 6px 0 20px; }
+    .hero p.bio { color: #c5cfdf; font-size: 18px; max-width: 580px; margin-bottom: 28px; }
+    .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; min-width: 120px; }
+    .stat b { display: block; font-size: 22px; line-height: 1.2; }
+    .stat span { font-size: 13px; color: var(--muted); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff; font-weight: 600;
+      padding: 12px 22px; border-radius: 10px; transition: transform .2s, background .2s;
+      max-width: 100%; overflow-wrap: anywhere;
+    }
+    .btn:hover { background: #3b7be6; transform: translateY(-2px); text-decoration: none; }
+    .btn.ghost { background: transparent; border: 1px solid var(--line); color: var(--text); }
+    .btn.ghost:hover { background: var(--accent-soft); }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .avatar {
+      justify-self: center;
+      width: min(340px, 80vw); aspect-ratio: 1 / 1;
+      border-radius: 50%; padding: 6px;
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      box-shadow: 0 20px 60px rgba(79, 143, 247, .25);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; border-radius: 50%; }
+
+    /* ===== PHOTO STRIP ===== */
+    .strip { overflow: hidden; padding: 8px 0 0; }
+    .strip-track { display: flex; gap: 16px; width: max-content; animation: marquee 40s linear infinite; }
+    .strip:hover .strip-track { animation-play-state: paused; }
+    .strip button {
+      flex: none; border: 0; padding: 0; background: none; cursor: zoom-in;
+      width: 300px; height: 220px; border-radius: 14px; overflow: hidden;
+    }
+    .strip img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .strip button:hover img { transform: scale(1.04); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 8px)); } }
+
+    /* ===== ABOUT ===== */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+    .card h3 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .about-item + .about-item { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .quote { font-size: 20px; font-weight: 600; line-height: 1.5; }
+    .hl { color: var(--accent); font-weight: 700; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-size: 13px; padding: 5px 12px; border-radius: 999px;
+      background: var(--accent-soft); color: #bcd3fb; border: 1px solid rgba(79, 143, 247, .25);
+    }
+    .hobbies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+    .hobby { text-align: center; padding: 16px 8px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
+    .hobby .ico { font-size: 28px; line-height: 1; margin-bottom: 8px; }
+    .hobby span { font-size: 14px; color: #c5cfdf; }
+
+    /* ===== EDUCATION ===== */
+    .edu { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: stretch; }
+    .school-name { font-size: 22px; line-height: 1.3; font-weight: 700; margin-bottom: 4px; }
+    .edu .meta { color: var(--muted); margin-bottom: 24px; }
+    .scores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 6px; }
+    .score { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; }
+    .score b { display: block; font-size: 24px; }
+    .score span { font-size: 12px; color: var(--muted); }
+    .test-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .test-row:last-child { border-bottom: 0; }
+    .test-row strong { font-size: 18px; }
+    .test-row .detail { color: var(--muted); font-size: 14px; text-align: right; }
+    .edu-photo { border-radius: var(--radius); overflow: hidden; min-height: 260px; }
+    .edu-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ===== CARD GRID ===== */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .item { display: flex; flex-direction: column; transition: background .2s, transform .2s; }
+    .item:hover { background: var(--card-hover); transform: translateY(-2px); }
+    .item .top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+    .item .badge { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; background: var(--accent-soft); }
+    .item h4 { font-size: 18px; line-height: 1.35; }
+    .item .org { color: var(--accent); font-size: 14px; font-weight: 500; }
+    .item .when { color: var(--muted); font-size: 13px; }
+    .item p { color: #c5cfdf; font-size: 15px; margin-bottom: 16px; }
+    .item .chips { margin-top: auto; }
+    .evidence {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; align-self: flex-start;
+      background: none; border: 0; padding: 0; cursor: pointer;
+      color: var(--accent); font-size: 14px; font-weight: 600;
+    }
+    .evidence:hover { text-decoration: underline; }
+    .evidence + .evidence { margin-top: 6px; }
+
+    /* ===== CERTIFICATE GALLERY ===== */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+    .gallery button {
+      width: 100%; border: 1px solid var(--line); background: var(--card); border-radius: 12px; overflow: hidden;
+      padding: 0; cursor: zoom-in; text-align: left; color: var(--text);
+    }
+    .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; background: #fff; }
+    .gallery figcaption { font-size: 13px; padding: 10px 12px; color: var(--muted); }
+    .gallery button:hover { border-color: var(--accent); }
+
+    /* ===== LEADERSHIP ===== */
+    .lead-card { display: grid; grid-template-columns: 1fr 1.3fr; padding: 0; overflow: hidden; }
+    .lead-card .pic { min-height: 280px; }
+    .lead-card .pic img { width: 100%; height: 100%; object-fit: cover; }
+    .lead-card .body { padding: 32px; }
+    .lead-card h4 { font-size: 24px; margin-bottom: 4px; }
+    .lead-card ul { margin: 16px 0 20px 18px; color: #c5cfdf; }
+    .lead-card li + li { margin-top: 8px; }
+
+    /* ===== CONTACT / FOOTER ===== */
+    .contact { text-align: center; }
+    .contact .lead { margin-left: auto; margin-right: auto; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; text-align: center; color: var(--muted); font-size: 14px; }
+
+    /* ===== LIGHTBOX ===== */
+    dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 92vh; margin: auto; overflow: visible; }
+    dialog.lightbox::backdrop { background: rgba(3, 6, 12, .88); }
+    dialog.lightbox img { max-width: 96vw; max-height: 82vh; width: auto; border-radius: 10px; background: #fff; margin: 0 auto; }
+    dialog.lightbox p { color: #dfe7f3; text-align: center; padding: 12px 8px 0; font-size: 15px; }
+    dialog.lightbox .close {
+      position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%;
+      border: 0; background: rgba(255, 255, 255, .15); color: #fff; font-size: 24px; cursor: pointer; z-index: 2;
     }
 
-    /* Info Section layout (2-box horizontal) */
-.info-section {
-  margin-top: 80px;
-}
-
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;      /* để khi màn nhỏ thì tự xuống dòng */
-}
-
-.info-card {
-  flex: 1;
-  background: #0f1624;
-  padding: 35px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0px 0px 25px rgba(0,0,0,0.25);
-  color: white;
-  min-width: 320px;     /* hộp không bị hẹp */
-}
-
-/* TITLE format */
-.info-card h3,
-.hobby-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #4da3ff;
-}
-
-/* Divider */
-.divider {
-  width: 100%;
-  height: 1.3px;
-  background: rgba(255,255,255,0.2);
-  border: none;
-  margin: 20px 0;
-}
-
-/* Skills layout */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skills-list span {
-  background: rgba(255,255,255,0.08);
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-/* Hobbies layout */
-.hobby-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 25px;
-}
-
-.hobby-item {
-  text-align: center;
-  width: 90px;
-}
-
-.hobby-circle {
-  width: 70px;
-  height: 70px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  margin: 0 auto 8px;
-}
-
-    /* --- ABOUT ME SECTION --- */
-.about-section {
-  background: #0f1624;
-  padding: 80px 5%;
-  text-align: left;
-  color: white;
-}
-
-.about-title {
-  font-size: 60px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.about-sub {
-  font-size: 22px;
-  color: #4da3ff;
-}
-    /* --- INFO SECTION WRAPPER --- */
-.info-section {
-  display: flex;
-  gap: 40px;
-  margin-top: 60px;
-}
-
-/* --- TWO CARDS --- */
-.info-card {
-  flex: 1;
-  background: #0f1624;
-  padding: 35px;
-  border-radius: 18px;
-  color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-/* BIG TEXT QUOTES */
-.big-text {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-/* BLUE KEYWORDS */
-.highlight {
-  color: #4da3ff;
-}
-
-/* SECTION TITLES INSIDE CARDS */
-.info-card h3 {
-  margin-top: 18px;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: #4da3ff;
-}
-
-/* DIVIDER LINES */
-.divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.22);
-  background: #4da3ff;
-  opacity: 0.5;
-  border: none;
-  margin: 20px 0;
-}
-
-
-/* SKILLS & INTERESTS LIST FORMAT */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skills-list span {
-  background: #1b2436;
-  padding: 8px 14px;
-  border-radius: 10px;
-  font-size: 14px;
-  border: 1px solid #2e3a55;
-}
-
-/* --- HOBBIES SECTION (RIGHT CARD) --- */
-.hobby-title {
-  font-size: 40px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.hobby-desc {
-  opacity: 0.8;
-  margin-bottom: 25px;
-}
-
-.hobby-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-}
-
-.hobby-item {
-  text-align: center;
-}
-
-.hobby-circle {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 3px solid #4da3ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 45px;
-  color: #4da3ff;
-  transition: 0.25s ease;
-  background: #0f1624;
-}
-
-.hobby-circle:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px rgba(77,163,255,0.45);
-}
-
-.hobby-label {
-  margin-top: 10px;
-  font-size: 16px;
-}
-    /* ===== EDUCATION SECTION ===== */
-    /* ======================================
-   EDUCATION — EXACT FORMAT LIKE SAMPLE
-   ====================================== */
-
-.edu-section {
-  background: #0f1624;
-  padding: 100px 6%;
-  color: white;
-}
-
-.edu-container {
-  max-width: 1500px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-/* ===== EDUCATION — FIX HEIGHT BALANCE ===== */
-.edu-section {
-  background: #0f1624;
-  padding: 100px 6%;
-  color: white;
-}
-
-.edu-container {
-  max-width: 1500px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;   /* Hình to hơn chút */
-  gap: 70px;
-  align-items: stretch;                 /* CHỮ CAO THEO CHIỀU CAO HÌNH */
-}
-
-/* LEFT */
-.edu-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;               /* căn giữa theo chiều dọc */
-  gap: 18px;                             /* khoảng cách đều nhau */
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.edu-title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.edu-icon {
-  font-size: 42px;
-}
-
-.edu-school {
-  font-size: 32px;
-  font-weight: 600;
-}
-
-.edu-major {
-  font-size: 22px;
-  color: #4da3ff;
-}
-
-.edu-year {
-  font-size: 20px;
-  opacity: 0.9;
-}
-
-.edu-block h4 {
-  font-size: 20px;
-  color: #89b4ff;
-  margin-bottom: 4px;
-}
-
-.edu-block p {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-/* RIGHT (BIGGER IMAGE + SHIFT LEFT) */
-.edu-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;  /* ĐẨY HÌNH SANG TRÁI */
-}
-
-.edu-right img {
-  width: 115%;                   /* TO HƠN RÕ RỆT */
-  height: 580px;                 /* TĂNG CHIỀU CAO */
-  object-fit: cover;
-  border-radius: 18px;
-  transform: translateX(-10%);   /* DỊCH TRÁI NHẸ CHO ĐẸP */
-  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
-}
-
-  /* ===== HONORS & AWARDS ===== */
-.honors-section {
-  background: #0f1624;
-  padding: 100px 6%;
-  color: white;
-}
-
-.honors-title {
-  font-size: 46px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.honors-sub {
-  font-size: 18px;
-  color: #4da3ff;
-  max-width: 800px;
-  margin-bottom: 60px;
-}
-
-.honors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.honor-card {
-  background: #131b2e;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.honor-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.6);
-}
-
-.honor-icon {
-  font-size: 30px;
-  color: #4da3ff;
-  margin-bottom: 18px;
-}
-
-.honor-card h3 {
-  font-size: 22px;
-  margin-bottom: 6px;
-}
-
-.honor-org {
-  display: block;
-  font-size: 14px;
-  color: #4da3ff;
-  margin-bottom: 6px;
-}
-
-.honor-time {
-  display: block;
-  font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 12px;
-}
-
-.honor-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-    /* ===== HONORS GROUP TITLE ===== */
-.honors-group-title {
-  font-size: 28px;
-  font-weight: 600;
-  margin: 70px 0 30px;
-  color: #89b4ff;
-  position: relative;
-}
-
-.honors-group-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 70px;
-  height: 3px;
-  background: #4da3ff;
-  border-radius: 4px;
-}
-
-    /* ===== ACHIEVEMENT GALLERY ===== */
-.achievement-gallery {
-  background: #0f1624;
-  padding: 80px 5%;
-}
-
-.gallery-title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.gallery-sub {
-  font-size: 18px;
-  color: #4da3ff;
-  margin-bottom: 40px;
-}
-
-/* SLIDER */
-.gallery-slider {
-  overflow: hidden;
-  width: 100%;
-}
-
-.gallery-track {
-  display: flex;
-  gap: 25px;
-  animation: galleryScroll 18s linear infinite;
-}
-
-.gallery-track img {
-  width: 320px;
-  height: 220px;
-  background: #1c2538;   /* placeholder khi chưa có ảnh */
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-}
-
-/* PAUSE khi hover */
-.gallery-slider:hover .gallery-track {
-  animation-play-state: paused;
-}
-
-/* ANIMATION */
-@keyframes galleryScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-    /* ===== HONORS ACHIEVEMENT GALLERY ===== */
-.honors-gallery-sub {
-  font-size: 16px;
-  color: #9bbcff;
-  margin-bottom: 30px;
-}
-
-.honors-gallery {
-  overflow: hidden;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.honors-gallery-track {
-  display: flex;
-  gap: 25px;
-  animation: honorsScroll 20s linear infinite;
-}
-
-.honors-gallery-track img {
-  width: 320px;
-  height: 220px;
-  background: #1c2538; /* placeholder */
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-}
-
-/* pause on hover */
-.honors-gallery:hover .honors-gallery-track {
-  animation-play-state: paused;
-}
-
-@keyframes honorsScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-
-    /* ===============================
-   EXTRACURRICULARS SECTION
-================================ */
-
-.extracurriculars {
-  background: radial-gradient(circle at top left, #3a004d, #0c0f14);
-  padding: 90px 6%;
-  color: #fff;
-}
-
-.section-title {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.section-sub {
-  max-width: 720px;
-  font-size: 18px;
-  color: #6fb0ff;
-  margin-bottom: 55px;
-}
-
-/* GRID */
-.extra-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-}
-
-/* CARD */
-.extra-card {
-  background: linear-gradient(180deg, #151a1f, #0e1116);
-  padding: 28px 26px;
-  border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.extra-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 55px rgba(0,0,0,0.65);
-}
-
-/* HEADER */
-.extra-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.extra-icon {
-  font-size: 28px;
-}
-
-.extra-card h3 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-/* ROLE */
-.extra-role {
-  display: inline-block;
-  font-size: 13px;
-  color: #7fb3ff;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-}
-
-/* DESCRIPTION */
-.extra-card p {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 18px;
-}
-
-/* TAGS */
-.extra-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.extra-tags span {
-  background: rgba(122, 70, 255, 0.25);
-  color: #d6caff;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-}
-    /* ===== EXTRACURRICULAR CERTIFICATE GALLERY ===== */
-
-.certificate-gallery{
-    overflow: hidden;
-    width: 100%;
-    margin-top: 55px;
-}
-
-.certificate-gallery-track{
-    display:flex;
-    gap:25px;
-    width:max-content;
-    animation: certificateScroll 22s linear infinite;
-}
-
-.certificate-gallery-track img{
-    width:320px;
-    height:220px;
-    object-fit:cover;
-    border-radius:14px;
-    background:#1c2538;
-    box-shadow:0 10px 30px rgba(0,0,0,.45);
-    transition:.3s;
-}
-
-.certificate-gallery-track img:hover{
-    transform:scale(1.04);
-}
-
-.certificate-gallery:hover .certificate-gallery-track{
-    animation-play-state:paused;
-}
-
-@keyframes certificateScroll{
-    from{
-        transform:translateX(0);
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero .wrap, .about-grid, .edu, .lead-card { grid-template-columns: 1fr; }
+      .hero { padding-top: 40px; }
+      .hero .wrap { gap: 32px; }
+      .avatar { order: -1; width: min(240px, 64vw); }
+      .lead-card .pic { min-height: 0; aspect-ratio: 16 / 10; }
+      .edu-photo { min-height: 0; aspect-ratio: 3 / 2; }
     }
-    to{
-        transform:translateX(-50%);
+    @media (max-width: 600px) {
+      section { padding: 64px 0; }
+      .nav .brand { display: none; }
+      .nav .wrap { height: 54px; }
+      .hero p.bio { font-size: 16px; }
+      .stat { flex: 1 1 calc(50% - 12px); min-width: 0; }
+      .grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .strip button { width: 220px; height: 160px; }
+      .card { padding: 22px; }
+      .lead-card { padding: 0; }
+      .lead-card .body { padding: 22px; }
+      .test-row { flex-direction: column; gap: 2px; }
+      .test-row .detail { text-align: left; }
+      .quote { font-size: 18px; }
     }
-}
-
-    /* ===============================
-   LEADERSHIP EXPERIENCE
-================================ */
-
-.leadership {
-  background: #0f1216;
-  padding: 90px 6%;
-  color: #fff;
-}
-
-.leadership-list {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
-
-/* CARD */
-.leadership-card {
-  display: flex;
-  gap: 28px;
-  background: linear-gradient(180deg, #151a1f, #0e1116);
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.leadership-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 55px rgba(0,0,0,0.6);
-}
-
-/* IMAGE */
-.leadership-img img {
-  width: 110px;
-  height: 110px;
-  border-radius: 14px;
-  object-fit: cover;
-}
-
-/* CONTENT */
-.leadership-content h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.leadership-role {
-  display: block;
-  font-size: 14px;
-  color: #6fb0ff;
-  margin-bottom: 12px;
-}
-
-.leadership-content p {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 14px;
-}
-
-/* TAGS */
-.leadership-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.leadership-tags span {
-  background: rgba(122, 70, 255, 0.25);
-  color: #d6caff;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .leadership-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .leadership-img img {
-    width: 90px;
-    height: 90px;
-  }
-}
-
-    /* ================= LEADERSHIP ================= */
-
-.leadership-section {
-  padding: 80px 5%;
-  background: #0f1624;
-  color: white;
-}
-
-.leadership-section .section-title {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.leadership-section .section-sub {
-  font-size: 18px;
-  color: #4da3ff;
-  margin-bottom: 40px;
-}
-
-.leadership-card {
-  background: #151d2f;
-  border-radius: 16px;
-  padding: 28px 32px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.leadership-title {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.leadership-meta {
-  font-size: 16px;
-  color: #a0b3d9;
-  margin-bottom: 14px;
-}
-
-.leadership-meta span {
-  color: #6fb0ff;
-}
-
-.leadership-desc {
-  font-size: 17px;
-  line-height: 1.6;
-  opacity: 0.95;
-  margin-bottom: 18px;
-}
-
-/* LINK BUTTON */
-.leadership-link {
-  display: inline-block;
-  padding: 10px 18px;
-  background: linear-gradient(135deg, #3a7bfd, #6b4dff);
-  color: white;
-  font-size: 14px;
-  border-radius: 10px;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.leadership-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(90,120,255,0.45);
-}
-
-    /* ===== COMMUNITY INFO BOXES ===== */
-
-.community-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.community-box {
-  padding: 6px 14px;
-  font-size: 13px;
-  border-radius: 8px;
-  background: rgba(77,163,255,0.12);
-  border: 1px solid rgba(77,163,255,0.35);
-  color: #9ecbff;
-  font-weight: 500;
-  white-space: nowrap;
-}
-    .community-link {
-  display: inline-block;
-  margin-top: 12px;
-  color: #4da3ff;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.community-link:hover {
-  text-decoration: underline;
-}
-
-
-    /* ================= WORK EXPERIENCE ================= */
-
-.work-section {
-  padding: 80px 5%;
-  background: #0f1624;
-  color: white;
-}
-
-.work-card {
-  display: flex;
-  gap: 28px;
-  background: #141c2e;
-  border-radius: 16px;
-  padding: 26px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.45);
-}
-
-/* LEFT IMAGE */
-.work-left {
-  min-width: 160px;
-  max-width: 160px;
-}
-
-.work-left img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* RIGHT CONTENT */
-.work-right {
-  flex: 1;
-}
-
-.work-right h3 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.work-role {
-  font-size: 14px;
-  color: #4da3ff;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
-}
-
-.work-desc {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.95;
-  margin-bottom: 16px;
-}
-
-    /* ===== FOOTER ===== */
-.site-footer {
-  background: linear-gradient(135deg, #0b1f4d, #123a8f); /* BLUE BACKGROUND */
-  color: #e6ecff;
-  padding: 50px 5% 30px;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Top info */
-.footer-top {
-  font-size: 15px;
-  opacity: 0.95;
-  margin-bottom: 22px;
-  text-align: center;
-}
-
-.footer-top span {
-  margin: 0 6px;
-  white-space: nowrap;
-}
-
-/* Social buttons */
-.footer-socials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 28px;
-}
-
-.social-btn {
-  padding: 11px 24px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.12);
-  color: #ffffff;
-  font-size: 14px;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.25);
-  transition: 0.3s ease;
-}
-
-.social-btn:hover {
-  background: rgba(255,255,255,0.25);
-  transform: translateY(-3px);
-}
-
-/* Bottom */
-.footer-bottom {
-  font-size: 13px;
-  opacity: 0.7;
-  text-align: center;
-}
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .strip-track { animation: none; }
+      .strip { overflow-x: auto; }
+      * { transition: none !important; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- HERO / Header -->
-  <header class="hero">
-  <div class="hero-container">
-    
-    <!-- LEFT CONTENT -->
-    <div class="hero-text">
-      <p class="hello">Welcome to My Portfolio, I am</p>
-      <h1 class="big-name">Tran Lan Phuong</h1>
-
-      <p class="bio">
-        A high school student with a strong interest in Business Analysis, passionate about uncovering insights, solving real-world problems, 
-        and creating value through data-driven decisions. I constantly seek opportunities to challenge myself, 
-        broaden my perspective, and develop the skills needed to make a meaningful impact in an ever-evolving business world.
-      </p>
-
-      <a href="#gallery" class="hero-button">Explore My Journey</a>
-    </div>
-
-    <!-- RIGHT AVATAR -->
-    <div class="avatar-wrapper">
-      <img src="avatar.jpg" alt="Avatar">
-    </div>
-
-  </div>
-</header>
-  <!-- ABOUT ME SECTION -->
-<section id="about" class="about-section">
-  <h2 class="about-title">About Me</h2>
-  <p class="about-sub">
-    This is things that show you who I am. 
-  </p>
-</section>
-
-
-  <div class="image-slider" id="gallery">
-  <div class="image-track track-right">
-    <img src="img1.jpg">
-    <img src="img2.jpg">
-    <img src="img3.jpg">
-    <img src="img4.jpeg">
-    <img src="img5.jpg">
-
-    <!-- Duplicate để chạy vô tận -->
-    <img src="img1.jpg">
-    <img src="img2.jpg">
-    <img src="img3.jpg">
-    <img src="img4.jpeg">
-    <img src="img5.jpg">
-    
-  </div>
-</div>
-
-
-
-
-
-
-  <div class="container">
-    <!-- Objective -->
-    <section class="info-section">
-      <div class="info-row">
-
-  <!-- LEFT CARD -->
-        <div class="info-card">
-
-  <!-- LIFE MOTTO -->
-  <p class="big-text">
-    "Stay curious, embrace challenges, and grow with every experience."
-  </p>
-  <h3>LIFE MOTTO</h3>
-  <hr class="divider">
-
-  <!-- OBJECTIVE -->
-  <p class="big-text">
-    To study <span class="highlight">BUSINESS ANALYTICS</span> and develop the skills to turn
-    <span class="highlight">DATA</span>  into insights that help businesses make better decisions.
-  </p>
-  <h3>OBJECTIVE</h3>
-  <hr class="divider">
-
-  <!-- SKILLS -->
-  <div class="skills-list">
-    <span>Microsoft Office</span>
-    <span>Python</span>
-    <span>Machine Learning</span>
-    <span>Data Analytics</span>
-    <span>AI Tools</span>
-  </div>
-  <h3>SKILLS</h3>
-  <hr class="divider">
-
-
-</div>
-
-
- 
-
-  <!-- RIGHT CARD (HOBBIES) -->
-  <div class="info-card">
-    <h1 class="hobby-title">Hobbies</h1>
-    <p class="hobby-desc">
-      Beyond academics, I find joy and balance through diverse interests
-    </p>
-
-    <div class="hobby-icons">
-
-  <div class="hobby-item">
-    <div class="hobby-circle">💻</div>
-    <div class="hobby-label">Technology</div>
-  </div>
-
-  <div class="hobby-item">
-    <div class="hobby-circle">🧮</div>
-    <div class="hobby-label">Mathematics</div>
-  </div>
-
-  <div class="hobby-item">
-    <div class="hobby-circle">📚</div>
-    <div class="hobby-label">Research</div>
-  </div>
-
-  <div class="hobby-item">
-    <div class="hobby-circle">🤝</div>
-    <div class="hobby-label">Socializing</div>
-  </div>
-
-  <div class="hobby-item">
-    <div class="hobby-circle">📈</div>
-    <div class="hobby-label">Data Analytics</div>
-  </div>
-
-  <div class="hobby-item">
-    <div class="hobby-circle">🏸</div>
-    <div class="hobby-label">Badminton</div>
-  </div>
-
-</div>
-
-    </div>
-
-    
-</section>
-
-
-    <!-- Education -->
-    <section id="education" class="edu-section">
-
-  <div class="edu-container">
-
-    <!-- LEFT SIDE: TEXT -->
-    <div class="edu-left">
-
-      <h2 class="edu-title">📘 Education</h2>
-
-      <h3 class="edu-school">
-        Nguyen Thi Minh Khai Highschool
-      </h3>
-
-      <p class="edu-year">2024 – 2027</p>
-
-      <div class="edu-block">
-        <h4>GPA</h4>
-        <p>9.6 (9th) · 9.1 (10th) · 9.5 (11th) · Present (12th)</p>
-      </div>
-
-      <div class="edu-block">
-        <h4>Standardized Tests</h4>
-        <p><strong>SAT:</strong> 1550 (720 Verbal, 740 Math)</p>
-        <p><strong>IELTS:</strong> 7.5 Overall (Listening: 8.5 & Reading: 7.5) </p>
-      </div>
-
-    </div>
-
-    <!-- RIGHT SIDE: IMAGE -->
-    <div class="edu-right">
-      <img src="ntmk.jpeg" alt="School Image">
-    </div>
-
-  </div>
-
-</section>
-
-
-    <!-- Honors & Awards -->
-    <section id="honors" class="honors-section">
-  <h2 class="honors-title">Honors & Awards</h2>
-  <p class="honors-sub">
-    Academic achievements with supporting evidence.
-  </p>
-
-  <!-- ===== ACADEMIC AWARDS ===== -->
-  <h3 class="honors-group-title">Academic Awards</h3>
-  <div class="honors-grid">
-
-    <div class="honor-card">
-      <div class="honor-icon">🏆</div>
-      <h3>Grand Finalist</h3>
-      <span class="honor-org">International Applied Mathematics Olympiad 2026</span>
-      <span class="honor-time">Grade 11</span>
-      <p>Grand Finalist in the International Applied Mathematics Olympiad (IAMO) 2026 Hosted by Indonesia Scientific Society (ISS)</p>
-    </div>
-
-    <div class="honor-card">
-      <div class="honor-icon">🏆</div>
-      <h3>Excellent Student</h3>
-      <span class="honor-org">Excellent Student Competition – English</span>
-      <span class="honor-time">Grade 9</span>
-      <p>Received an award in the Grade 9 Excellent Student English Competition, demonstrating
-      English proficiency and strong language-based academic skills.</p>
-    </div>
-
-    <div class="honor-card">
-      <div class="honor-icon">🥉</div>
-      <h3>Certificate of Participation</h3>
-      <span class="honor-org">Asia International Mathematical Olympiad (AIMO) </span>
-      <span class="honor-time">1st February</span>
-      <p>Sucessfully participated in the Preliminary Round of the Asia International Mathematical Olympiad (AIMO) Academic Year 2025-2026 </p>
-    </div>
-  </div>
-
-  <!-- ===== ACHIEVEMENT GALLERY (INSIDE HONORS) ===== -->
-  <h3 class="honors-group-title">Achievement Gallery</h3>
-  <p class="honors-gallery-sub">
-    Visual evidence of certificates, awards, and competition participation.
-  </p>
-
-  <div class="honors-gallery">
-    <div class="honors-gallery-track">
-      <!-- PLACEHOLDER IMAGES – bạn thêm ảnh sau -->
-      <img src="AIMO.jfif" >
-      <img src="IAMO certi.JPG">
-
-      <img src="AIMO.jfif" >
-      <img src="IAMO certi.JPG">
-
-      <img src="AIMO.jfif" >
-      <img src="IAMO certi.JPG">
-      
-    
-    </div>
-  </div>
-</section>
-
-    
-
-    <!-- Extracurricular -->
-    <section class="extracurriculars">
-  <h2 class="section-title">Extracurricular Activities</h2>
-  <p class="section-sub">
-    This is where I highlight the activities and experiences that shaped my growth
-    beyond academics.
-  </p>
-
-  <div class="extra-grid">
-
-    <!-- Lucky Village -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">🌱</div>
-        <h3>Lucky Village</h3>
-      </div>
-
-      <span class="extra-role">VOLUNTEER | 4th August 2025</span>
-
-      <p>
-        Participated in community volunteering activities focused on environmental
-        protection, social support, and public service.
-      </p>
-
-      <div class="extra-tags">
-        <span>Volunteering</span>
-        <span>Community</span>
-        <span>Environment</span>
+  <!-- ================= NAV ================= -->
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="#top">Tran Lan Phuong</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#honors">Honors</a>
+        <a href="#activities">Activities</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
+  </nav>
 
-    <!-- Tuoi hong -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">📝</div>
-        <h3>Tuoi Hong Minh Khai Music Festival</h3>
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+      <div class="wrap">
+        <div class="text">
+          <span class="eyebrow">Portfolio</span>
+          <h1>Tran Lan Phuong</h1>
+          <p class="bio">
+            A high school student in Ho Chi Minh City with a strong interest in Business Analytics.
+            I enjoy uncovering insights, solving real-world problems and creating value through
+            data-driven decisions, and I constantly seek opportunities to challenge myself and
+            broaden my perspective.
+          </p>
+          <div class="stats">
+            <div class="stat"><b>1550</b><span>SAT</span></div>
+            <div class="stat"><b>7.5</b><span>IELTS</span></div>
+            <div class="stat"><b>9.5</b><span>GPA Grade 11 (/10)</span></div>
+            <div class="stat"><b>Grand Finalist</b><span>IAMO 2026</span></div>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#education">Explore my journey ↓</a>
+            <a class="btn ghost" href="mailto:tranlanphuong0311@gmail.com">Contact me</a>
+          </div>
+        </div>
+        <div class="avatar">
+          <img src="assets/img/avatar.jpg" alt="Tran Lan Phuong in front of Nguyen Thi Minh Khai High School" width="512" height="900">
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="alt">
+      <div class="wrap">
+        <span class="eyebrow">About me</span>
+        <h2 class="title">A glimpse into who I am</h2>
+        <p class="lead">What drives me, what I am working towards, and what I enjoy outside the classroom.</p>
       </div>
 
-      <span class="extra-role">PROPS BUILDER | 18th January 2025 </span>
-
-      <p>
-        Assisted audiences during music festival by providing guidance,
-        logistical support, and supervision.
-      </p>
-
-      <div class="extra-tags">
-        <span>Volunteering</span>
-        <span>Music</span>
-        <span>Festival</span>
-        <span>Support</span>
-      </div>
-    </div>
-
-    <!-- TIch ta -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">📚</div>
-        <h3>Tich Ta Traditional Camp for Grade 10</h3>
+      <div class="strip" aria-label="Photos">
+        <div class="strip-track">
+          <button type="button" data-full="assets/img/photo-toa-gate.jpg" data-caption="At school"><img src="assets/img/photo-toa-gate.jpg" alt="Phuong at the school festival gate" loading="lazy"></button>
+          <button type="button" data-full="assets/img/photo-handmade-core.jpg" data-caption="Core Member, Handmade Team – Ong Sang Tao Club"><img src="assets/img/photo-handmade-core.jpg" alt="Ong Sang Tao Club Handmade Team core member poster" loading="lazy"></button>
+          <button type="button" data-full="assets/img/photo-toa-group.jpg" data-caption="With friends at school"><img src="assets/img/photo-toa-group.jpg" alt="Phuong with a group of students" loading="lazy"></button>
+          <button type="button" data-full="assets/img/photo-class.jpg" data-caption="With classmates"><img src="assets/img/photo-class.jpg" alt="Phuong with her classmates" loading="lazy"></button>
+          <!-- duplicate set for a seamless loop -->
+          <button type="button" aria-hidden="true" tabindex="-1" data-full="assets/img/photo-toa-gate.jpg" data-caption="At school"><img src="assets/img/photo-toa-gate.jpg" alt="" loading="lazy"></button>
+          <button type="button" aria-hidden="true" tabindex="-1" data-full="assets/img/photo-handmade-core.jpg" data-caption="Core Member, Handmade Team – Ong Sang Tao Club"><img src="assets/img/photo-handmade-core.jpg" alt="" loading="lazy"></button>
+          <button type="button" aria-hidden="true" tabindex="-1" data-full="assets/img/photo-toa-group.jpg" data-caption="With friends at school"><img src="assets/img/photo-toa-group.jpg" alt="" loading="lazy"></button>
+          <button type="button" aria-hidden="true" tabindex="-1" data-full="assets/img/photo-class.jpg" data-caption="With classmates"><img src="assets/img/photo-class.jpg" alt="" loading="lazy"></button>
+        </div>
       </div>
 
-      <span class="extra-role">COLLABORATOR | 27th September 2025 </span>
+      <div class="wrap" style="margin-top:40px">
+        <div class="about-grid">
+          <div class="card">
+            <div class="about-item">
+              <h3>Life motto</h3>
+              <p class="quote">"Stay curious, embrace challenges, and grow with every experience."</p>
+            </div>
+            <div class="about-item">
+              <h3>Objective</h3>
+              <p class="quote">To study <span class="hl">Business Analytics</span> and develop the skills to turn <span class="hl">data</span> into insights that help businesses make better decisions.</p>
+            </div>
+            <div class="about-item">
+              <h3>Skills</h3>
+              <div class="chips">
+                <span class="chip">Microsoft Office</span>
+                <span class="chip">Python</span>
+                <span class="chip">Machine Learning</span>
+                <span class="chip">Data Analytics</span>
+                <span class="chip">AI Tools</span>
+              </div>
+            </div>
+          </div>
 
-      <p>
-        Collaborated with the organizing committee to prepare materials, support event logistics, coordinate activities, 
-        and assist participants throughout the camp, strengthening teamwork, communication, and problem-solving skills.
-      </p>
-
-      <div class="extra-tags">
-        <span>Support</span>
-        <span>Camp</span>
-        <span>Volunteer</span>
+          <div class="card">
+            <h3>Hobbies</h3>
+            <p style="color:var(--muted)">Beyond academics, I find joy and balance through diverse interests.</p>
+            <div class="hobbies">
+              <div class="hobby"><div class="ico" aria-hidden="true">💻</div><span>Technology</span></div>
+              <div class="hobby"><div class="ico" aria-hidden="true">🧮</div><span>Mathematics</span></div>
+              <div class="hobby"><div class="ico" aria-hidden="true">📚</div><span>Research</span></div>
+              <div class="hobby"><div class="ico" aria-hidden="true">🤝</div><span>Socializing</span></div>
+              <div class="hobby"><div class="ico" aria-hidden="true">📈</div><span>Data Analytics</span></div>
+              <div class="hobby"><div class="ico" aria-hidden="true">🏸</div><span>Badminton</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- CTTT K12 -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">📚</div>
-        <h3>Traditional Camp for 12th Grade</h3>
+    <!-- ================= EDUCATION ================= -->
+    <section id="education">
+      <div class="wrap">
+        <span class="eyebrow">Education</span>
+        <h2 class="title">Academic background</h2>
+        <p class="lead">Grades and standardized test results.</p>
+
+        <div class="edu">
+          <div class="card">
+            <p class="school-name">Nguyen Thi Minh Khai High School</p>
+            <p class="meta">Ho Chi Minh City, Vietnam · 2024 – 2027</p>
+
+            <h3>GPA (10-point scale)</h3>
+            <div class="scores">
+              <div class="score"><b>9.6</b><span>Grade 9</span></div>
+              <div class="score"><b>9.1</b><span>Grade 10</span></div>
+              <div class="score"><b>9.5</b><span>Grade 11</span></div>
+            </div>
+            <p class="note">Grade 12 in progress.</p>
+
+            <h3 style="margin-top:28px">Standardized tests</h3>
+            <div class="test-row">
+              <strong>SAT · 1550</strong>
+              <span class="detail">750 Reading &amp; Writing · 800 Math</span>
+            </div>
+            <div class="test-row">
+              <strong>IELTS · 7.5 Overall</strong>
+              <span class="detail">Listening 8.5 · Reading 7.5</span>
+            </div>
+          </div>
+
+          <div class="edu-photo">
+            <img src="assets/img/school.jpg" alt="Nguyen Thi Minh Khai High School building" loading="lazy" width="640" height="427">
+          </div>
+        </div>
       </div>
+    </section>
 
-      <span class="extra-role">COLLABORATOR | 10th May 2025 </span>
+    <!-- ================= HONORS ================= -->
+    <section id="honors" class="alt">
+      <div class="wrap">
+        <span class="eyebrow">Honors &amp; awards</span>
+        <h2 class="title">Academic achievements</h2>
+        <p class="lead">Competitions and awards, with certificates you can open to view.</p>
 
-      <p>
-        Worked with the organizing team to coordinate camp activities, assist participants, prepare event materials,
-        and contribute to the successful execution of the program through effective teamwork and communication.
-      </p>
+        <div class="grid">
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">🏆</div>
+              <div>
+                <h4>Grand Finalist</h4>
+                <div class="org">International Applied Mathematics Olympiad (IAMO) 2026</div>
+                <div class="when">May 21–24, 2026 · Bandung, Indonesia · Grade 11</div>
+              </div>
+            </div>
+            <p>Named a Grand Finalist at the International Applied Mathematics Olympiad 2026, hosted by the Indonesia Scientific Society (ISS).</p>
+            <button class="evidence" type="button" data-full="assets/cert/iamo-2026-grand-finalist.jpg" data-caption="IAMO 2026 – Grand Finalist certificate">View certificate →</button>
+          </article>
 
-      <div class="extra-tags">
-        <span>Support</span>
-        <span>Camp</span>
-        <span>Volunteer</span>
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">🏅</div>
+              <div>
+                <h4>Excellent Student Award – English</h4>
+                <div class="org">Excellent Student Competition</div>
+                <div class="when">Grade 9</div>
+              </div>
+            </div>
+            <p>Received an award in the Grade 9 Excellent Student Competition in English, demonstrating strong English proficiency and language-based academic skills.</p>
+          </article>
+
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">📜</div>
+              <div>
+                <h4>Certificate of Participation</h4>
+                <div class="org">Asia International Mathematical Olympiad (AIMO) 2025–2026</div>
+                <div class="when">Preliminary Round · February 1, 2026</div>
+              </div>
+            </div>
+            <p>Successfully participated in the Preliminary Round of the Asia International Mathematical Olympiad, academic year 2025–2026.</p>
+            <button class="evidence" type="button" data-full="assets/cert/aimo-2026.jpg" data-caption="AIMO 2025–2026 – Certificate of Participation">View certificate →</button>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Ong sang tao Club -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">🔧</div>
-        <h3>Ong Sang Tao Club</h3>
+    <!-- ================= ACTIVITIES ================= -->
+    <section id="activities">
+      <div class="wrap">
+        <span class="eyebrow">Extracurricular activities</span>
+        <h2 class="title">Beyond the classroom</h2>
+        <p class="lead">Activities and experiences that shaped my growth outside academics.</p>
+
+        <div class="grid">
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">🤝</div>
+              <div>
+                <h4>"Smiling Chances" Charity Program</h4>
+                <div class="org">Volunteer · Maison Chance (Làng May Mắn), Binh Hung Hoa Ward</div>
+                <div class="when">August 4, 2025</div>
+              </div>
+            </div>
+            <p>Volunteered in the "Smiling Chances" charity program at Maison Chance and was recognized with a certificate for meaningful contributions to the program.</p>
+            <div class="chips"><span class="chip">Volunteering</span><span class="chip">Community</span><span class="chip">Charity</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/smiling-chances-maison-chance.jpg" data-caption="Smiling Chances – Maison Chance certificate">View certificate →</button>
+          </article>
+
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">🎭</div>
+              <div>
+                <h4>Tuoi Hong Minh Khai Music Festival</h4>
+                <div class="org">Props Builder · School Youth Union</div>
+                <div class="when">January 18, 2025</div>
+              </div>
+            </div>
+            <p>Built stage props for the school's Tuoi Hong music festival and received a Certificate of Appreciation from the organizing committee for wholehearted contribution to the festival's success.</p>
+            <div class="chips"><span class="chip">Props</span><span class="chip">Creativity</span><span class="chip">Event</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/tuoi-hong-props-builder.jpg" data-caption="Tuoi Hong Minh Khai – Props Builder certificate">View certificate →</button>
+          </article>
+
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">⛺</div>
+              <div>
+                <h4>"Tich Ta" Grade 10 Camp</h4>
+                <div class="org">Collaborator · School Youth Union</div>
+                <div class="when">September 27, 2025</div>
+              </div>
+            </div>
+            <p>Worked with the organizing committee to prepare materials, support event logistics, coordinate activities and assist participants throughout the camp, strengthening teamwork, communication and problem-solving skills.</p>
+            <div class="chips"><span class="chip">Event Organizing</span><span class="chip">Teamwork</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/tich-ta-camp.jpg" data-caption="Tich Ta Grade 10 Camp – Collaborator certificate">View certificate →</button>
+          </article>
+
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">⛺</div>
+              <div>
+                <h4>Traditional Camp for Grade 12</h4>
+                <div class="org">Collaborator</div>
+                <div class="when">May 10, 2025</div>
+              </div>
+            </div>
+            <p>Worked with the organizing team to coordinate camp activities for 12th-grade students, assist participants and prepare event materials, contributing to the successful execution of the program.</p>
+            <div class="chips"><span class="chip">Event Organizing</span><span class="chip">Teamwork</span></div>
+          </article>
+
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">✂️</div>
+              <div>
+                <h4>Ong Sang Tao Club</h4>
+                <div class="org">Core Member, Handmade Team · Generation 15</div>
+                <div class="when">2024 – 2025</div>
+              </div>
+            </div>
+            <p>Crafted handmade products for fundraising events and school activities, developed creative designs with the team, prepared workshop materials and helped organize club events.</p>
+            <div class="chips"><span class="chip">Handmade</span><span class="chip">Fundraising</span><span class="chip">Creativity</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/ong-sang-tao-handmade.jpg" data-caption="Ong Sang Tao Club – Member of Handmade certificate">View certificate →</button>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <span class="extra-role">MEMBER OF HANDMADE | 2024 - 2025 </span>
+    <!-- ================= CERTIFICATIONS ================= -->
+    <section id="certifications" class="alt">
+      <div class="wrap">
+        <span class="eyebrow">Certifications &amp; courses</span>
+        <h2 class="title">Building data and AI skills</h2>
+        <p class="lead">Online courses and certifications that support my goal of studying Business Analytics.</p>
 
-      <p>
-        Crafted handmade products for fundraising events and school activities, 
-        collaborated with team members to develop creative designs, prepared materials for workshops, 
-        and contributed to organizing club events while strengthening teamwork, creativity, and attention to detail.
-      </p>
+        <div class="grid">
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">📊</div>
+              <div>
+                <h4>Introduction to Data Analytics</h4>
+                <div class="org">IBM · Coursera</div>
+                <div class="when">Completed June 10, 2026</div>
+              </div>
+            </div>
+            <p>Completed foundational training in data analytics, covering data cleaning, analysis, visualization and communicating insights with industry-standard tools.</p>
+            <div class="chips"><span class="chip">Data Analytics</span><span class="chip">Visualization</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/ibm-coursera-data-analytics.jpg" data-caption="IBM Introduction to Data Analytics – Coursera certificate">View certificate →</button>
+            <a class="evidence" href="https://coursera.org/verify/7R0DZL4OGJLQ" target="_blank" rel="noopener">Verify on Coursera ↗</a>
+          </article>
 
-      <div class="extra-tags">
-        <span>Craft</span>
-        <span>Creativity</span>
-        <span>Handmade</span>
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">✨</div>
+              <div>
+                <h4>Gemini Certified Student – University</h4>
+                <div class="org">Google for Education</div>
+                <div class="when">Issued February 15, 2026 · Valid through 2029</div>
+              </div>
+            </div>
+            <p>Demonstrated the knowledge, skills and basic competencies needed to use Google AI.</p>
+            <div class="chips"><span class="chip">Artificial Intelligence</span><span class="chip">Prompting</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/google-gemini-certified.jpg" data-caption="Gemini Certified Student – Google for Education">View certificate →</button>
+          </article>
+
+          <article class="card item">
+            <div class="top">
+              <div class="badge" aria-hidden="true">💡</div>
+              <div>
+                <h4>Solve for Tomorrow 2026</h4>
+                <div class="org">Samsung</div>
+                <div class="when">Online training · Preliminary round</div>
+              </div>
+            </div>
+            <p>Completed Samsung's online training program, building foundational knowledge in Design Thinking, AI applications, STEM innovation and creative problem-solving for real-world challenges.</p>
+            <div class="chips"><span class="chip">Design Thinking</span><span class="chip">AI</span><span class="chip">STEM</span></div>
+            <button class="evidence" type="button" data-full="assets/cert/samsung-solve-for-tomorrow-2026.jpg" data-caption="Samsung Solve for Tomorrow 2026 – training certificate">View certificate →</button>
+          </article>
+        </div>
+
+        <h3 style="margin-top:56px;font-size:20px">All certificates</h3>
+        <p class="note">Tap any certificate to view it in full size.</p>
+        <div class="gallery">
+          <figure><button type="button" data-full="assets/cert/iamo-2026-grand-finalist.jpg" data-caption="IAMO 2026 – Grand Finalist"><img src="assets/cert/iamo-2026-grand-finalist-thumb.jpg" alt="IAMO 2026 Grand Finalist certificate" loading="lazy"><figcaption>IAMO 2026 – Grand Finalist</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/aimo-2026.jpg" data-caption="AIMO 2025–2026 – Participation"><img src="assets/cert/aimo-2026-thumb.jpg" alt="AIMO certificate of participation" loading="lazy"><figcaption>AIMO 2025–2026</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/ibm-coursera-data-analytics.jpg" data-caption="IBM Introduction to Data Analytics"><img src="assets/cert/ibm-coursera-data-analytics-thumb.jpg" alt="IBM Coursera certificate" loading="lazy"><figcaption>IBM Data Analytics</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/google-gemini-certified.jpg" data-caption="Gemini Certified Student"><img src="assets/cert/google-gemini-certified-thumb.jpg" alt="Google Gemini Certified Student certificate" loading="lazy"><figcaption>Google Gemini Certified</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/samsung-solve-for-tomorrow-2026.jpg" data-caption="Samsung Solve for Tomorrow 2026"><img src="assets/cert/samsung-solve-for-tomorrow-2026-thumb.jpg" alt="Samsung Solve for Tomorrow certificate" loading="lazy"><figcaption>Samsung Solve for Tomorrow</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/smiling-chances-maison-chance.jpg" data-caption="Smiling Chances – Maison Chance"><img src="assets/cert/smiling-chances-maison-chance-thumb.jpg" alt="Smiling Chances volunteer certificate" loading="lazy"><figcaption>Smiling Chances</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/tuoi-hong-props-builder.jpg" data-caption="Tuoi Hong – Props Builder"><img src="assets/cert/tuoi-hong-props-builder-thumb.jpg" alt="Tuoi Hong Props Builder certificate" loading="lazy"><figcaption>Tuoi Hong – Props Builder</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/tich-ta-camp.jpg" data-caption="Tich Ta Grade 10 Camp – Collaborator"><img src="assets/cert/tich-ta-camp-thumb.jpg" alt="Tich Ta camp certificate" loading="lazy"><figcaption>Tich Ta Camp</figcaption></button></figure>
+          <figure><button type="button" data-full="assets/cert/ong-sang-tao-handmade.jpg" data-caption="Ong Sang Tao Club – Handmade"><img src="assets/cert/ong-sang-tao-handmade-thumb.jpg" alt="Ong Sang Tao Club certificate" loading="lazy"><figcaption>Ong Sang Tao Club</figcaption></button></figure>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <!-- ================= LEADERSHIP ================= -->
+    <section id="leadership">
+      <div class="wrap">
+        <span class="eyebrow">Leadership</span>
+        <h2 class="title">Leading my class community</h2>
+        <p class="lead">Serving my classmates and supporting teachers as Class President.</p>
 
-    <!-- Gemini -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">🔧</div>
-        <h3>Gemini Certificated Students</h3>
+        <article class="card lead-card">
+          <div class="pic">
+            <img src="assets/img/photo-class.jpg" alt="Phuong with her classmates" loading="lazy" width="1200" height="781">
+          </div>
+          <div class="body">
+            <span class="eyebrow">Grades 1 – 10</span>
+            <h4>Class President</h4>
+            <ul>
+              <li>Managed and organized class activities and maintained the class record book.</li>
+              <li>Assisted teachers with attendance and communicated information to classmates.</li>
+              <li>Supported teachers in maintaining academic discipline and coordinated with classmates to resolve class-related issues.</li>
+            </ul>
+            <div class="chips"><span class="chip">50+ students</span><span class="chip">Leadership</span><span class="chip">Communication</span></div>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <p>
-        Demonstrated knowledge, skills, and basic competencies needed to use Google AI.
-      </p>
-
-      <div class="extra-tags">
-        <span>Artificial Intelligence</span>
-        <span>Computering</span>
-        <span>Prompting</span>
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="alt contact">
+      <div class="wrap">
+        <span class="eyebrow">Contact</span>
+        <h2 class="title">Let's connect</h2>
+        <p class="lead">Ho Chi Minh City, Vietnam</p>
+        <a class="btn" href="mailto:tranlanphuong0311@gmail.com">tranlanphuong0311@gmail.com</a>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <!-- Coursera -->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">🔧</div>
-        <h3>Introduction to Data Analytics</h3>
-      </div>
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Trần Lan Phương. All rights reserved.</div>
+  </footer>
 
-      <p>
-        Completed foundational training in data analytics, including data cleaning, 
-        analysis, visualization, and effective communication of insights using industry-standard tools.
-      </p>
+  <!-- ================= LIGHTBOX ================= -->
+  <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+    <button class="close" type="button" aria-label="Close">×</button>
+    <img src="data:," alt="">
+    <p></p>
+  </dialog>
 
-      <div class="extra-tags">
-        <span>Data</span>
-        <span>Analytics</span>
-        <span>Knowledge</span>
-      </div>
-    </div>
-
-    <!--Samsung-->
-    <div class="extra-card">
-      <div class="extra-header">
-        <div class="extra-icon">🔧</div>
-        <h3>Solve for Tomorrow 2026</h3>
-      </div>
-
-      <p>
-        Successfully completed Samsung's online training program, gaining foundational knowledge in Design Thinking, 
-        AI applications, STEM innovation, and creative problem-solving for real-world challenges.
-      </p>
-
-      <div class="extra-tags">
-        <span>Artificial Intelligence</span>
-        <span>Design</span>
-        <span>STEM</span>
-      </div>
-    </div>
-
-  </div>
-      
-      <div class="certificate-gallery">
-    <div class="certificate-gallery-track">
-      <!-- PLACEHOLDER IMAGES – bạn thêm ảnh sau -->
-      <img src="Tích Ta certi.PNG" >
-      <img src="Solve for tomorrow (Samsung contest) certi.JPG" >
-      <img src="Screenshot 2026-08-04 at 11.06.13.png">
-      <img src="Screenshot 2026-08-04 at 11.06.02.png" >
-      <img src="Ongsangtao certi.PNG" >
-      <img src="Introduction to Analytics coursera.PNG" >
-      <img src="Gemeni - Lan Phuong Cert.png" >
-      <img src="langmayman.jfif" >
-
-      <!-- DUPLICATE để chạy vô tận -->
-      <img src="Tích Ta certi.PNG" >
-      <img src="Solve for tomorrow (Samsung contest) certi.JPG" >
-      <img src="Screenshot 2026-08-04 at 11.06.13.png">
-      <img src="Screenshot 2026-08-04 at 11.06.02.png" >
-      <img src="Ongsangtao certi.PNG" >
-      <img src="Introduction to Analytics coursera.PNG" >
-      <img src="Gemeni - Lan Phuong Cert.png" >
-      <img src="langmayman.jfif" >
-      
-    
-    </div>
-  </div>
-</section>
-
-
-    <!-- Leadership -->
-    <section class="leadership-section" id="leadership">
-
-  <h2 class="section-title">Leadership Experience</h2>
-  <p class="section-subtitle">
-    Demonstrating leadership through building and managing online communities.
-  </p>
-
-  <!-- ===== LEADERSHIP CARD 1 ===== -->
-  <div class="leadership-card">
-    <div class="leadership-left">
-      <img src="classpresident.jfif" alt="Studying Community">
-    </div>
-
-    <div class="leadership-right">
-      <h3></h3>
-      <p class="leadership-role">
-        Class President | Grades 1 to 10
-      </p>
-
-      <p class="leadership-desc">
-        Managed class activities, maintained the class record book, assisted teachers with attendance, communicated information, and organized class activities.
-      </p>
-      <p class="leadership-desc">
-        Supported teachers in maintaining academic discipline and coordinated with classmates to address class-related issues.
-      </p>
-
-      <div class="community-boxes">
-        <span class="community-box">50+ Students</span>
-        <span class="community-box">Leading Community</span>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-  
-  <footer class="site-footer">
-  <div class="footer-top">
-    <span>Ho Chi Minh City, Vietnam</span>
-    <span>|</span>
-    <span>(+84) 987747427</span>
-    <span>|</span>
-    <span> tranlanphuong0311@gmail.com</span>
-  </div>
-
-  <div class="footer-socials">
-    <a href="https://github.com/edu-portfolio/tranlanphuong.github.io/" target="_blank" class="social-btn">
-      GitHub
-    </a>
-    <a href="" target="_blank" class="social-btn">
-      Facebook
-    </a>
-    <a href="" target="_blank" class="social-btn">
-      Instagram
-    </a>
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 Trần Lan Phương. All rights reserved.
-  </div>
-</footer>
-
-
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = box.querySelector('img');
+      var cap = box.querySelector('p');
+      document.addEventListener('click', function (e) {
+        var t = e.target.closest('[data-full]');
+        if (!t) return;
+        img.src = t.getAttribute('data-full');
+        img.alt = t.getAttribute('data-caption') || '';
+        cap.textContent = t.getAttribute('data-caption') || '';
+        if (box.showModal) box.showModal(); else box.setAttribute('open', '');
+      });
+      function close() { if (box.close) box.close(); else box.removeAttribute('open'); }
+      box.querySelector('.close').addEventListener('click', close);
+      box.addEventListener('click', function (e) { if (e.target === box) close(); });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
